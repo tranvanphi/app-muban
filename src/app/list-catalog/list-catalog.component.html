@@ -1,0 +1,26 @@
+<div class="gird card-columns-custom">
+	<div *ngFor="let list of data" class="grid-item" 
+		[ngClass]="{
+			'grid-item--width2': list.image_lage === '1'
+		}"
+	>
+		<a href="/catalog_detalt/{{getCapitalizeName(list.alias_name)}}">
+			<div class="wrap-img">
+				<div class="image-background"
+					[ngClass]="{
+						'mobile': list.alias_name === 'mobile',
+						'car': list.alias_name === 'car',
+						'produce': list.alias_name === 'produce',
+						'fashion': list.alias_name === 'fashion',
+						'pet': list.alias_name === 'pet',
+						'home': list.alias_name === 'home'
+					}"
+				></div>
+				<div class="wrap-text text-white">
+					<p>{{getCapitalizeName(list.name)}}</p>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+

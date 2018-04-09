@@ -5,7 +5,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
 import { UserServiceService } from '../shared/user-service.service';
-import { HeaderComponentComponent } from '../header-component/header-component.component';
 
 @Component({
 	selector: 'app-form-login',
@@ -18,7 +17,6 @@ export class FormLoginComponent implements OnInit {
 	
 	constructor(
 		private userSevice: UserServiceService,
-		private headerCom: HeaderComponentComponent,
 		private router:Router,
 		private http: HttpClient
 	){}
@@ -31,7 +29,6 @@ export class FormLoginComponent implements OnInit {
 		
 		this.userSevice.userAuthentication(user, pass).subscribe((data: any) =>{
 			localStorage.setItem('userToken',data.user_token);
-			this.headerCom.showUser();
 			this.router.navigate(['/']);
 		},(err:HttpErrorResponse)=>{
 			this.isLoginError = true;

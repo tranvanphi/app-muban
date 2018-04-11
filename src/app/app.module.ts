@@ -13,11 +13,16 @@ import { FormLoginComponent } from './form-login/form-login.component';
 import { ListPostCatelogComponent } from './list-post-catelog/list-post-catelog.component';
 import { SlidebarCatelogComponent } from './slidebar-catelog/slidebar-catelog.component';
 import { UserServiceService } from './shared/user-service.service';
+import { RegisterComponentComponent } from './register-component/register-component.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: FormLoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponentComponent
   },
   {
     path: '',
@@ -38,7 +43,8 @@ const routes: Routes = [
     ListCatalogComponent,
     FormLoginComponent,
     ListPostCatelogComponent,
-    SlidebarCatelogComponent
+    SlidebarCatelogComponent,
+    RegisterComponentComponent
   ],
   imports: [
     BrowserModule,

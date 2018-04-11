@@ -17,9 +17,15 @@ export class UserServiceService {
     var headers = new HttpHeaders({'Authorization': 'Bearer '});
     if(localStorage.getItem('userToken')){
       var headers = new HttpHeaders({'Authorization': 'Bearer '+localStorage.getItem('userToken')});
-      
     }
     return this.http.get(this.rootUrl+'checkuser', {headers: headers});
     
+  }
+
+
+  userpost(username, password, email, name){
+    var data = "username="+username+"&password="+password+"&email="+email+"&name="+name;
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'});
+    return this.http.post(this.rootUrl + 'register', data, {headers: reqHeader});
   }
 }
